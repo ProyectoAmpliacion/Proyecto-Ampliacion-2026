@@ -6,6 +6,8 @@ Vagrant.configure("2") do |config|
   # Nombre de la VM
   config.vm.hostname = "wordpress-vm"
 
+  config.vm.boot_timeout = 600
+
   # Forwarding WordPress
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
@@ -16,6 +18,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "4096"
     vb.cpus = 2
+
   end
 
   # Provisioning (Añadimos 'run: "always"' para que funcione cada vez que lo pidas)
